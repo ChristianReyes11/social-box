@@ -1,4 +1,6 @@
-
+body{
+  background-color: rgb(211, 40, 9);
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,11 +16,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(235, 69, 69);
 }
 
 .App-link {
-  color: #61dafb;
+  color: #c83a3a;
 }
 
 @keyframes App-logo-spin {
@@ -33,24 +35,31 @@
 .container h2 {
   text-align: center;
   margin: 25px auto;
+  background-color: #c83a3a;
 }
 
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
+  background-color: #c83a3a;
 }
 
 .submit-form {
   max-width: 300px;
   margin: auto;
+
 }
 
 .edit-form {
   max-width: 300px;
   margin: auto;
+  background-color: #c83a3a;
+
 }
 .container h2 {
   text-align: center;
   margin: 25px auto;
+  background-color: #c83a3a;
+
 }

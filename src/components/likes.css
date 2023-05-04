@@ -2,6 +2,7 @@
 .reactions-menu-dropdown .reaccion{
     border: none;
     outline: none;
-    height: 35px;
+    height: 60px;
     padding: 1px 10px;
+    background-color: brown;
 }
