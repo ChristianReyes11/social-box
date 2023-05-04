@@ -65,13 +65,8 @@ export default class TkdappList extends Component {
   render() {
     const { tkdapps: tkdapp, currentTkdapp } = this.state;
 
-    // Define el número de columnas y filas para el grid
-    const columns = 3;
-
-    // Establece los estilos para el grid y las imágenes
     const gridStyles = {
       display: "row",
-      gridTemplateColumns: `repeat(${columns}, 1fr)`,
       gap: "10px",
     };
     const imageStyles = {
