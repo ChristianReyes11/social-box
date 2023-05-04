@@ -1,14 +1,14 @@
 import firebase from "../firebase";
 
-const db = firebase.collection("/box");
+const db = firebase.collection("/poomsae");
 
-class InterstellarDataService {
+class tkdappDataService {
   getAll() {
     return db;
   }
 
-  create(interstellar) {
-    return db.add(interstellar);
+  create(poomsae) {
+    return db.add(poomsae);
   }
 
   update(id, value) {
@@ -20,4 +20,5 @@ class InterstellarDataService {
   }
 }
 
-export default new InterstellarDataService();
+const DataService = new tkdappDataService();
+export default DataService;
