@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TkdAppDataServices from "../services/tkdapp.services"
 import Coments from "./coments.component";
 import Likes from "./likes.component"; 
-import Tkdapp from "./tkdapp.component"
 
 export default class TkdappList extends Component {
   constructor(props) {
@@ -63,15 +62,10 @@ export default class TkdappList extends Component {
     });
   }
   render() {
-    const { tkdapps: tkdapp, currentTkdapp } = this.state;
+    const { tkdapps: tkdapp } = this.state;
 
-    // Define el número de columnas y filas para el grid
-    const columns = 3;
-
-    // Establece los estilos para el grid y las imágenes
     const gridStyles = {
       display: "row",
-      gridTemplateColumns: `repeat(${columns}, 1fr)`,
       gap: "10px",
     };
     const imageStyles = {
@@ -86,8 +80,8 @@ export default class TkdappList extends Component {
     return (
       <div style={{margin: 15}}>
         <h4>Boxeadores feed</h4>
-        <div className="row" style={{ display: "flex", justifyContent: "space-between", alignContent:"center"}}>
-          <div className="col" style={{maxWidth: '60%'}}>
+        <div className="row" style={{ display: "flex", justifyContent: "space-between", alignContent:"center", alignItems:"center"}}>
+          <div className="col" style={{maxWidth: '30%',alignContent:"center",alignItems:"center"}}>
             <div style={gridStyles}>
               {tkdapp.map((tkdapp, index) => (
                 <div
