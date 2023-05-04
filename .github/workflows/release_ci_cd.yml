@@ -55,7 +55,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}}
+        run: docker push ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME_TEST}}:${{github.sha}}
         
       - name: Numero de nodos de k8 en okteto
         run: sed -i 's/{nodosokteto}/${{secrets.NODOS}}/g' manifests/k8s.yaml
