@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TkdAppDataServices from "../services/tkdapp.services"
 import Coments from "./coments.component";
 import Likes from "./likes.component"; 
-//import Tkdapp from "./tkdapp.component"
 
 export default class TkdappList extends Component {
   constructor(props) {
