@@ -81,8 +81,8 @@ export default class TkdappList extends Component {
     return (
       <div style={{margin: 15}}>
         <h4>Boxeadores feed</h4>
-        <div className="row" style={{ display: "flex", justifyContent: "space-between", alignContent:"center"}}>
-          <div className="col" style={{maxWidth: '60%'}}>
+        <div className="row" style={{ display: "flex", justifyContent: "space-between", alignContent:"center", alignItems:"center"}}>
+          <div className="col" style={{maxWidth: '30%',alignContent:"center",alignItems:"center"}}>
             <div style={gridStyles}>
               {tkdapp.map((tkdapp, index) => (
                 <div
