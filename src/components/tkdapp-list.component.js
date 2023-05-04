@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TkdAppDataServices from "../services/tkdapp.services"
 import Coments from "./coments.component";
 import Likes from "./likes.component"; 
-import Tkdapp from "./tkdapp.component"
+//import Tkdapp from "./tkdapp.component"
 
 export default class TkdappList extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ export default class TkdappList extends Component {
     });
   }
   render() {
-    const { tkdapps: tkdapp, currentTkdapp } = this.state;
+    const { tkdapps: tkdapp } = this.state;
 
     const gridStyles = {
       display: "row",
