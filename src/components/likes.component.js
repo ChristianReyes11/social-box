@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import KafkaService from "../services/kafka.service";
 import './likes.css';
 class ReactionsMenu extends Component {
   constructor(props) {
@@ -41,6 +42,20 @@ class ReactionsMenu extends Component {
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
+  saveLike(e, status) {
+  
+    let data = {
+      id: 0,
+      status: status
+    };
+ 
+    console.log(JSON.stringify(data));
+ 
+    KafkaService.reaction("i-love-adsoftsito");
+    e.preventDefault();
+}
+
+
   render() {
     const { likes, isOpen } = this.state;
 
@@ -50,7 +65,7 @@ class ReactionsMenu extends Component {
         {isOpen && (
           <div className="reactions-menu-dropdown">
             {Object.keys(likes).map((reaction) => (
-              <button key={reaction} className='reaccion' onClick={() => this.handleClick(reaction)}>
+              <button key={reaction} className='reaccion' onClick={(e) => {this.handleClick(reaction); e.preventDefault();this.saveLike(e,1)}}>
                 <span role="img" aria-label={reaction}>
                   {reaction === 'like' ? '\u{1F44D}' :
                     reaction === 'love' ? '\u{2764}' :
