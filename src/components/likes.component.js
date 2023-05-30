@@ -42,7 +42,7 @@ class ReactionsMenu extends Component {
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
-  saveLike(e, status) {
+  saveLike(e, status,reaction) {
   
     let data = {
       id: 0,
@@ -51,9 +51,9 @@ class ReactionsMenu extends Component {
  
     console.log(JSON.stringify(data));
  
-    KafkaService.reaction("i-love-adsoftsito");
+    KafkaService.reaction("Usuario", "Objeto", reaction);
     e.preventDefault();
-}
+  }
 
 
   render() {
@@ -65,7 +65,11 @@ class ReactionsMenu extends Component {
         {isOpen && (
           <div className="reactions-menu-dropdown">
             {Object.keys(likes).map((reaction) => (
-              <button key={reaction} className='reaccion' onClick={(e) => {this.handleClick(reaction); e.preventDefault();this.saveLike(e,1)}}>
+              <button key={reaction} className='reaccion' onClick={(e) => {
+                e.preventDefault();
+                this.saveLike(e, 1,reaction);
+                this.handleClick(reaction);
+              }}>
                 <span role="img" aria-label={reaction}>
                   {reaction === 'like' ? '\u{1F44D}' :
                     reaction === 'love' ? '\u{2764}' :
