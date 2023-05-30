@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import kafkaService from '../services/kafka.service';
 
 class CommentBox extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class CommentBox extends Component {
  
     console.log(JSON.stringify(data));
  
-    KafkaService.comment("id","idsd", comment);
+    kafkaService.comment("id","idsd", comment);
   }
 
   render() {
