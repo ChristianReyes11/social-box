@@ -32,7 +32,7 @@ class CommentBox extends Component {
  
     console.log(JSON.stringify(data));
  
-    kafkaService.comment("id","idsd", comment);
+    kafkaService.comment(this.props.email, this.props.id, comment);
   }
 
   render() {
