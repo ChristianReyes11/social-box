@@ -64,8 +64,13 @@ export default class TkdappList extends Component {
   render() {
     const { tkdapps: tkdapp } = this.state;
 
+
+
+
+
     const gridStyles = {
       display: "row",
+    
       gap: "10px",
     };
     const imageStyles = {
@@ -97,7 +102,7 @@ export default class TkdappList extends Component {
                       onClick={() => this.setActiveTkdapp(tkdapp, index)}
                     />
                   <div key={index} className="tkdapp-item" style={{}}>
-                    <Likes likes={tkdapp.likes} id={tkdapp.id} refreshList={this.refreshList} />
+                    <Likes likes={tkdapp.likes} id={tkdapp.id} email={this.props.email} refreshList={this.refreshList} />
                     <Coments id={tkdapp.id} email={this.props.email} />
                   </div>
                 </div>
