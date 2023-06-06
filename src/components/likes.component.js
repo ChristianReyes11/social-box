@@ -1,22 +1,61 @@
 import React, { Component } from 'react';
 import KafkaService from "../services/kafka.service";
 import './likes.css';
+import axios from 'axios';
 
 class ReactionsMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       likes: {
-        like: props.likes[0] || 0,
-        love: props.likes[1] || 0,
-        laugh: props.likes[2] || 0,
-        cry: props.likes[3] || 0,
-        wow: props.likes[4] || 0,
-        angry: props.likes[5] || 0
+        like: 0,
+        love: 0,
+        laugh: 0,
+        cry: 0,
+        wow: 0,
+        angry: 0
       },
       isOpen: false
     };
   }
+
+  componentDidMount() {
+    this.fetchReactions();
+  }
+
+  fetchReactions = async () => {
+    try {
+      
+      const id = this.props.id;
+      console.log("try ",id);
+      const uri = "https://mongoapi-service-christianreyes11.cloud.okteto.net/api/reactions";
+      const responseLike = await axios.get(`${uri}/${id}/like`);
+      const likeCount = responseLike.data ? responseLike.data.n : 0;
+      const responseLove = await axios.get(`${uri}/${id}/love`);
+      const loveCount = responseLove.data ? responseLove.data.n : 0;
+      const responseLaugh = await axios.get(`${uri}/${id}/laugh`);
+      const laughCount = responseLaugh.data ? responseLaugh.data.n : 0;
+      const responseSad = await axios.get(`${uri}/${id}/cry`);
+      const sadCount = responseSad.data ? responseSad.data.n : 0;
+      const responseWow = await axios.get(`${uri}/${id}/wow`);
+      const wowCount = responseWow.data ? responseWow.data.n : 0;
+      const responseAngry = await axios.get(`${uri}/${id}/angry`);
+      const angryCount = responseAngry.data ? responseAngry.data.n : 0;
+
+      this.setState({
+        likes: {
+          like: likeCount,
+          love: loveCount,
+          laugh: laughCount,
+          cry: sadCount,
+          wow: wowCount,
+          angry: angryCount
+        }
+      });
+    } catch (error) {
+      console.log('Error al obtener las reacciones:', error);
+    }
+  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.likes !== this.props.likes) {
